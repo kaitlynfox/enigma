@@ -46,16 +46,20 @@ class OffsetManager
     squared_date.to_s[-4..-1]
   end
 
-  def offsets(last_four_of_the_square)
+  def offsets
+    todays_date = generate_todays_date
+    squared_date = square_the_date(todays_date)
+    last_four = last_four_of_the_square(squared_date)
+
     # A Offset: First digit (4)
     # B Offset: Second digit (0)
     # C Offset: Third digit (4)
     # D Offset: Fourth digit (1)
     hash = {
-              a_offset: last_four_of_the_square[0, 1],
-              b_offset: last_four_of_the_square[1, 1],
-              c_offset: last_four_of_the_square[2, 1],
-              d_offset: last_four_of_the_square[3, 1]
+              a_offset: last_four[0, 1],
+              b_offset: last_four[1, 1],
+              c_offset: last_four[2, 1],
+              d_offset: last_four[3, 1]
             }
   end
 end
