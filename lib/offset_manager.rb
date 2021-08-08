@@ -35,4 +35,9 @@ class OffsetManager
   def create_final_date(date)
     date.join
   end
+
+# Offset class
+  def square_the_date(date)
+    date.to_i * date.to_i
+  end
 end
