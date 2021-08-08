@@ -6,7 +6,7 @@ class OffsetManager
     @date = date
   end
 
-  # Generate today's date if no date passed in
+# Generate today's date if no date passed in
   def generate_todays_date
     todays_date = Date.today
 
@@ -44,5 +44,18 @@ class OffsetManager
 # Offset class
   def last_four_of_the_square(squared_date)
     squared_date.to_s[-4..-1]
+  end
+
+  def offsets(last_four_of_the_square)
+    # A Offset: First digit (4)
+    # B Offset: Second digit (0)
+    # C Offset: Third digit (4)
+    # D Offset: Fourth digit (1)
+    hash = {
+              a_offset: last_four_of_the_square[0, 1],
+              b_offset: last_four_of_the_square[1, 1],
+              c_offset: last_four_of_the_square[2, 1],
+              d_offset: last_four_of_the_square[3, 1]
+            }
   end
 end
