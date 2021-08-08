@@ -87,4 +87,49 @@ RSpec.describe OffsetManager do
 
     expect(two.square_the_date(final_date_string)).to be_an(Integer)
   end
+
+  it "can get the last four of the squared date" do
+    one = OffsetManager.new("070821")
+    two = OffsetManager.new
+
+    todays_date = Date.today
+    string = two.format_todays_date(todays_date)
+    array = two.split_formatted_date(string)
+    two.delete_beginning_year_numbers(array)
+    final_date_string = two.create_final_date(array)
+    squared_date = two.square_the_date(final_date_string)
+
+    expect(one.last_four_of_the_square(squared_date)).to eq("4041")
+    expect(two.last_four_of_the_square(squared_date)).to be_a(String)
+    expect(two.last_four_of_the_square(squared_date).length).to eq(4)
+  end
+
+  it "can list the offsets" do
+    one = OffsetManager.new("070821")
+    two = OffsetManager.new
+
+    todays_date = Date.today
+    string = two.format_todays_date(todays_date)
+    array = two.split_formatted_date(string)
+    two.delete_beginning_year_numbers(array)
+    final_date_string = two.create_final_date(array)
+    squared_date = two.square_the_date(final_date_string)
+    last_four = two.last_four_of_the_square(squared_date)
+
+    expected = {
+                  a_offset: last_four[0, 1],
+                  b_offset: last_four[1, 1],
+                  c_offset: last_four[2, 1],
+                  d_offset: last_four[3, 1]
+                }
+
+    keys = [:a_offset, :b_offset, :c_offset, :d_offset]
+
+    expect(one.offsets(last_four)).to be_a(Hash)
+    expect(one.offsets(last_four)).to eq(expected)
+    expect(two.offsets(last_four).keys).to eq(keys)
+    expected.values.each do |value|
+      expect(value.is_int?).to eq(true)
+    end
+  end
 end
