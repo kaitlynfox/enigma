@@ -3,6 +3,7 @@ require './lib/key_manager'
 RSpec.describe KeyManager do
   it "exists" do
     one = KeyManager.new("12345")
+    two = KeyManager.new
 
     expect(one).to be_an(KeyManager)
     expect(two).to be_an(KeyManager)
@@ -13,7 +14,11 @@ RSpec.describe KeyManager do
     two = KeyManager.new
 
     expect(one.random_number).to eq("12345")
+    expect(one.random_number.size).to eq(5)
+    expect(one.random_number).to be_a(String)
     expect(two.random_number).to be_between("0", "99999")
+    expect(two.random_number.size).to eq(5)
+    expect(two.random_number).to be_a(String)
   end
 
   it "can create keys based on random number provided or generated" do
