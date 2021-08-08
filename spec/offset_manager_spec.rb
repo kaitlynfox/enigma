@@ -75,4 +75,16 @@ RSpec.describe OffsetManager do
 
     expect(two.create_final_date(array)).to be_a(String)
   end
+
+  it "can square the date" do
+    two = OffsetManager.new
+
+    todays_date = Date.today
+    string = two.format_todays_date(todays_date)
+    array = two.split_formatted_date(string)
+    two.delete_beginning_year_numbers(array)
+    final_date_string = two.create_final_date(array)
+
+    expect(two.square_the_date(final_date_string)).to be_an(Integer)
+  end
 end
