@@ -40,4 +40,9 @@ class OffsetManager
   def square_the_date(date)
     date.to_i * date.to_i
   end
+
+# Offset class
+  def last_four_of_the_square(squared_date)
+    squared_date.to_s[-4..-1]
+  end
 end
