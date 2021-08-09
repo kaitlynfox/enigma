@@ -104,6 +104,14 @@ RSpec.describe OffsetManager do
     expect(two.last_four_of_the_square(squared_date).length).to eq(4)
   end
 
+  it "TEST" do
+    one = OffsetManager.new("040895")
+
+    squared_date = one.square_the_date("040895")
+
+    expect(one.last_four_of_the_square(squared_date)).to eq("1025")
+  end
+
   it "can list the offsets" do
     one = OffsetManager.new("070821")
     two = OffsetManager.new
