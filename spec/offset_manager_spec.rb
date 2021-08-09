@@ -125,9 +125,9 @@ RSpec.describe OffsetManager do
 
     keys = [:a_offset, :b_offset, :c_offset, :d_offset]
 
-    expect(one.offsets(last_four)).to be_a(Hash)
-    expect(one.offsets(last_four)).to eq(expected)
-    expect(two.offsets(last_four).keys).to eq(keys)
+    expect(one.offsets).to be_a(Hash)
+    expect(one.offsets).to eq(expected)
+    expect(two.offsets.keys).to eq(keys)
     expected.values.each do |value|
       expect(value.is_int?).to eq(true)
     end
