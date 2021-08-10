@@ -1,8 +1,8 @@
 <h1>Enigma: Self-Assessment</h1>
 
 <h2>Functionality</h2>
-Enigma Class with encrypt and decrypt methods successfully implemented.
-Encrypt/decrypt command line interfaces successfully implemented.
+<p>Enigma Class with encrypt and decrypt methods successfully implemented.
+Encrypt/decrypt command line interfaces successfully implemented.</p>
 
 <p>To the best of my ability, I have implemented both the encrypt and
 decrypt methods to successfully encrypt a message and then decrypt that same
@@ -33,11 +33,11 @@ proficient as I would like to be and is something that I am working on.</p>
 
 
 <h2>Ruby Conventions and Mechanics</h2>
-Code is mostly properly indented, spaced, and lines are not excessively long.
+<p>Code is mostly properly indented, spaced, and lines are not excessively long.
 Class, method, variable, and file names follow convention. Some enumerables,
 data structures chosen are the most efficient tool for a given job, and
 students can speak as to why those enumerables/data structures were chosen.
-At least one hash is implemented in a way that makes logical sense.
+At least one hash is implemented in a way that makes logical sense.</p>
 
 <p>Code is mostly properly indented and spaced. I do have a couple of lines
 that are a bit longer than I'd like, but at this current moment, I have
@@ -55,11 +55,11 @@ into a hash).</p>
 
 
 <h2>Test Driven Development</h2>
-Every method is tested at both the unit and integration level, and completely
+<p>Every method is tested at both the unit and integration level, and completely
 verify expected behavior (i.e., if a single method does 3 things, all 3
 things are explicitly tested). Obvious edge cases are addressed. git history
 demonstrates students are writing tests before implementation code. Test
-coverage metrics show coverage at 99% or greater.
+coverage metrics show coverage at 99% or greater.</p>
 
 <p>SimpleCov is another tool that I was really unsure of when working in the
 group project. Now that I have had the chance to really work with it and see
@@ -73,8 +73,8 @@ tests prior to implementing code.</p>
 
 
 <h2>Version Control</h2>
-A passing project will have a minimum of 30 commits, and uses a pull request
-workflow that includes related and logical functionality.
+<p>A passing project will have a minimum of 30 commits, and uses a pull request
+workflow that includes related and logical functionality.</p>
 
 <p>I was able to reach the minimum of 30 commits and also created pull requests
 to merge to main.</p>
