@@ -5,31 +5,22 @@ require './lib/enigma'
 
 RSpec.describe Shift do
   it "exists" do
-    # key is a Hash
-    # offset is a Hash
-
-    # Create an instance of KeyManager
-    # to get the keys to pass into Shift
-    key_manager = KeyManager.new
-    # Create an instance of OffsetManager
-    # to get the keys to pass into Shift
-    offsets_manager = OffsetManager.new
-
-    shift_1 = Shift.new(key_manager, offsets_manager)
-
-    expect(shift_1).to be_a(Shift)
-  end
-
-  it "can add keys and offsets together to create individual shifts" do
-    # key is a Hash
-    # offset is a Hash
-
     # Create an instance of KeyManager to get the keys to pass into Shift
     # Create an instance of OffsetManager to get the keys to pass into Shift
     key_manager = KeyManager.new
     offsets_manager = OffsetManager.new
+    shift_1 = Shift.new(key_manager, offsets_manager)
 
-    # Create a shift that takes in keys and offsets
+    expect(shift_1).to be_a(Shift)
+    expect(shift_1.keys).to be_a(Hash)
+    expect(shift_1.offsets).to be_a(Hash)
+  end
+
+  it "can add keys and offsets together to create individual shifts" do
+    # Create an instance of KeyManager to get the keys to pass into Shift
+    # Create an instance of OffsetManager to get the keys to pass into Shift
+    key_manager = KeyManager.new
+    offsets_manager = OffsetManager.new
     shift_1 = Shift.new(key_manager, offsets_manager)
 
     expect(shift_1.shift).to be_an(Array)
@@ -44,8 +35,6 @@ RSpec.describe Shift do
       # Create an instance of OffsetManager to get the keys to pass into Shift
       key_manager = KeyManager.new
       offsets_manager = OffsetManager.new
-
-      # Create a shift that takes in keys and offsets
       shift_1 = Shift.new(key_manager, offsets_manager)
 
       # Create an enigma to access character_set
@@ -78,5 +67,47 @@ RSpec.describe Shift do
       expected = "e"
 
       expect(shift_1.shift_character(character, shift, character_set)).to eq("!")
+
+      shift_1.shift_character(character, shift, character_set = enigma.character_set)
+      starting_point = character_set.index(character)
+
+      expect(starting_point.nil?).to eq(true)
+
+      character = "h"
+      shift = 8
+
+      shift_1.shift_character(character, shift, character_set = enigma.character_set)
+      starting_point = character_set.index(character)
+
+      expect(starting_point.nil?).to eq(false)
+    end
+
+    it "can adjust a shift value" do
+      key_manager = KeyManager.new
+      offsets_manager = OffsetManager.new
+      shift_1 = Shift.new(key_manager, offsets_manager)
+
+      shift_value_1 = 97
+      shift_value_2 = -16
+
+      expect(shift_1.adjust_shift_value(shift_value_1)).to eq(16)
+      expect(shift_1.adjust_shift_value(shift_value_1)).to be_an(Integer)
+    end
+
+    it "can check new index location" do
+      key_manager = KeyManager.new
+      offsets_manager = OffsetManager.new
+      shift_1 = Shift.new(key_manager, offsets_manager)
+
+      new_index_location_1 = 4
+      new_index_location_2 = 32
+      new_index_location_3 = -3
+
+      expect(shift_1.check_new_index_location(new_index_location_1)).to eq(4)
+      expect(shift_1.check_new_index_location(new_index_location_2)).to eq(5)
+      expect(shift_1.check_new_index_location(new_index_location_3)).to eq(24)
+      expect(shift_1.check_new_index_location(new_index_location_3)).to be_an(Integer)
+      expect(shift_1.check_new_index_location(new_index_location_3)).to be_an(Integer)
+      expect(shift_1.check_new_index_location(new_index_location_3)).to be_an(Integer)
     end
 end
