@@ -42,10 +42,7 @@ class OffsetManager
   def offsets
     squared_date = square_the_date(@date)
     last_four = last_four_of_the_square(squared_date)
-    # A Offset: First digit (4)
-    # B Offset: Second digit (0)
-    # C Offset: Third digit (4)
-    # D Offset: Fourth digit (1)
+
     hash = {
               a_offset: last_four[0, 1],
               b_offset: last_four[1, 1],

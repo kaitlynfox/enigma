@@ -37,12 +37,20 @@ class Shift
     if shift > 27
       return (shift % 27)
     end
+
+    if shift < (-27)
+      return (shift % (-27))
+    end
     shift
   end
 
   def check_new_index_location(new_index_location)
     if new_index_location >= 27
       new_index_location = new_index_location - 27
+    end
+
+    if new_index_location < 0
+      new_index_location = new_index_location + 27
     end
     new_index_location
   end

@@ -86,14 +86,5 @@ RSpec.describe Enigma do
 
     # Takes in message, key, and date
     expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq(result)
-
-    expected = {
-                  encryption: "keder ohulw",
-                  key: "02715",
-                  date: "040895"
-              }
-
-    # Takes in a message and key (use's today's date)
-    expect(enigma.decrypt(expected[:encryption], "02715")).to eq(result)
   end
 end
